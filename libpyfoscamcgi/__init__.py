@@ -1,2 +1,2 @@
-from libpyfoscamCgi.foscamcgi import FoscamCamera
+from libpyfoscamcgi.foscamcgi import FoscamCamera
 
