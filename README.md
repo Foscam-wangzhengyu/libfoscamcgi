@@ -4,7 +4,7 @@ Python Library for Foscam IP Cameras
 
 Getting Started
 Install
-$ pip install python-foscam
+$ pip install libpyfoscamcgi
 Simple example
 Here is a simple example to move camera lens up and stop after 1s.
 
