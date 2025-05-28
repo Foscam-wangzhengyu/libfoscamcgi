@@ -9,12 +9,8 @@
 name: Upload Python Package
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        type: string
-        description: '0.0.6'
-        default: 'v0.0.6'
+   release:
+    types: [created]
 
 permissions:
   contents: read
