@@ -13,8 +13,8 @@ on:
     inputs:
       version:
         type: string
-        description: '0.0.4'
-        default: 'v0.0.4'
+        description: '0.0.5'
+        default: 'v0.0.5'
 
 permissions:
   contents: read
