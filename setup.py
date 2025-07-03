@@ -7,6 +7,7 @@ setup(
     author_email="wangzhengyu@foscam.com",
     url='https://github.com/Foscam-wangzhengyu/libfoscamcgi',
     description="foscam camera cgi", 
+    install_requires=["defusedxml"],
     include_package_data=True,
     license='LGPLv3+'    
 )
