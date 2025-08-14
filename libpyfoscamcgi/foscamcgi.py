@@ -787,3 +787,7 @@ class FoscamCamera:
             "AlarmUrl": AlarmUrl,
         }
         return self.execute_command("setAlarmHttpServer", params, callback=callback)
+
+    def getSWCapabilities(self, count=10, callback=None):
+        """Get HDR Switch Status."""
+        return self.execute_command("getSWCapabilities", callback=callback)
