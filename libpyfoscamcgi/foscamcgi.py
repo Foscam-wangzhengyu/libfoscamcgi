@@ -4,7 +4,7 @@
 """
 
 # Python 3 support. Also print -> print().
-
+import base64
 from threading import Thread
 from urllib.parse import unquote, urlencode
 from urllib.request import urlopen
@@ -783,11 +783,13 @@ class FoscamCamera:
 
     def setAlarmHttpServer(self, AlarmUrl, count=10, callback=None):
         """Set Alarm Http Server."""
+        encoded_url = base64.urlsafe_b64encode(AlarmUrl.encode("utf-8")).decode("utf-8")
         params = {
-            "AlarmUrl": AlarmUrl,
+            "AlarmUrl": encoded_url,
         }
         return self.execute_command("setAlarmHttpServer", params, callback=callback)
 
     def getSWCapabilities(self, count=10, callback=None):
         """Get HDR Switch Status."""
         return self.execute_command("getSWCapabilities", callback=callback)
+
