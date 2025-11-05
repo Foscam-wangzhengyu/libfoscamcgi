@@ -8,7 +8,7 @@ import base64
 from threading import Thread
 from urllib.parse import unquote, urlencode
 from urllib.request import urlopen
-
+from urllib.parse import quote
 try:
     import ssl
 
@@ -72,11 +72,13 @@ class FoscamCamera:
 
     def send_command(self, cmd, params=None, raw=False):
         """Send command to foscam."""
+        encode_usr = quote(self.usr)
+        encode_pwd = quote(self.pwd)
         paramstr = ""
         if params:
             paramstr = urlencode(params)
             paramstr = "&" + paramstr if paramstr else ""
-        cmdurl = f"http://{self.url}/cgi-bin/CGIProxy.fcgi?usr={self.usr}&pwd={self.pwd}&cmd={cmd}{paramstr}"
+        cmdurl = f"http://{self.url}/cgi-bin/CGIProxy.fcgi?usr={encode_usr}&pwd={encode_pwd}&cmd={cmd}{paramstr}"
         if self.ssl and ssl_enabled:
             cmdurl = cmdurl.replace("http:", "https:")
 
